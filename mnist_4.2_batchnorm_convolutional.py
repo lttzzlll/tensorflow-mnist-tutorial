@@ -78,6 +78,7 @@ L = 48  # second convolutional layer output depth
 M = 64  # third convolutional layer
 N = 200  # fully connected layer
 
+# convolutional layer
 W1 = tf.Variable(tf.truncated_normal([6, 6, 1, K], stddev=0.1))  # 6x6 patch, 1 input channel, K output channels
 B1 = tf.Variable(tf.constant(0.1, tf.float32, [K]))
 W2 = tf.Variable(tf.truncated_normal([5, 5, K, L], stddev=0.1))
@@ -85,6 +86,7 @@ B2 = tf.Variable(tf.constant(0.1, tf.float32, [L]))
 W3 = tf.Variable(tf.truncated_normal([4, 4, L, M], stddev=0.1))
 B3 = tf.Variable(tf.constant(0.1, tf.float32, [M]))
 
+# fully connected layer
 W4 = tf.Variable(tf.truncated_normal([7 * 7 * M, N], stddev=0.1))
 B4 = tf.Variable(tf.constant(0.1, tf.float32, [N]))
 W5 = tf.Variable(tf.truncated_normal([N, 10], stddev=0.1))
